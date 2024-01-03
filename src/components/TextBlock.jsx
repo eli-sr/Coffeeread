@@ -3,6 +3,13 @@ import { useEffect, useState } from 'react'
 
 export default function TextBlock ({ sentences }) {
   const [pos, setPos] = useState(0)
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [pos])
+
   const handleNext = () => {
     if (pos < sentences.length) { setPos(pos + 1) }
   }
@@ -16,13 +23,6 @@ export default function TextBlock ({ sentences }) {
       handlePrevious()
     }
   }
-  useEffect(() => {
-    console.log('useeffect')
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [pos])
   return (
     <div className='w-[80em] font-qs font-[300]'>
       <p className='text-[2.5rem] dark:text-opacity-80 dark:text-white'>{sentences[pos]}</p>
