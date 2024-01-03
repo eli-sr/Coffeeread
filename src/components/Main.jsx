@@ -12,9 +12,9 @@ export default function Main () {
   }, [text])
   return (
     <main className='flex items-center justify-center flex-1 w-full'>
-      {text === ''
-        ? <TextInput />
-        : <TextBlock sentences={sentences} />}
+      {sentences.length !== 0 && text !== ''
+        ? <TextBlock sentences={sentences} />
+        : <TextInput />}
     </main>
   )
 }
