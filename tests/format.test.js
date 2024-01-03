@@ -25,3 +25,23 @@ test('format function separates the test into sentences ending in "."', () => {
   ]
   expect(result).toStrictEqual(ok)
 })
+
+test('format function removes "\\n" and "-"', () => {
+  const text = `La invocación de los métodos remotos requiere el paso de argumentos, y por lo tanto la serializa-
+ción de los mismos. La serialización se da usando las tecnologías de serialización de Java, por lo
+cual hay que ser cuidadosos en la elección de los argumentos, en el uso de las clausulas trasient
+correspondientes, etc.
+Al usar RMI, la codificación de la invocación de métodos remotos se asemeja a la de métodos lo-
+cales. Sin embargo, la invocación remota tiene problemáticas asociadas a la naturaleza distribuida
+del proceso, y esto deriva en el uso recurrente de excepciones. Es muy importante saber manejarlas,
+e incluso generar código capaz de reintentar invocaciones en caso de RemoteException.`
+  const result = format(text)
+  const ok = [
+    'La invocación de los métodos remotos requiere el paso de argumentos, y por lo tanto la serialización de los mismos.',
+    'La serialización se da usando las tecnologías de serialización de Java, por lo cual hay que ser cuidadosos en la elección de los argumentos, en el uso de las clausulas trasient correspondientes, etc.',
+    'Al usar RMI, la codificación de la invocación de métodos remotos se asemeja a la de métodos locales.',
+    'Sin embargo, la invocación remota tiene problemáticas asociadas a la naturaleza distribuida del proceso, y esto deriva en el uso recurrente de excepciones.',
+    'Es muy importante saber manejarlas, e incluso generar código capaz de reintentar invocaciones en caso de RemoteException.'
+  ]
+  expect(result).toStrictEqual(ok)
+})
