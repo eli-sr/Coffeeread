@@ -1,4 +1,7 @@
-export default function TextInput ({ setText }) {
+import { useTextStore } from '../store/store'
+
+export default function TextInput () {
+  const { setText } = useTextStore()
   const handlePaste = async (e) => {
     setTimeout(() => {
       setText(e.target.value)
@@ -16,7 +19,7 @@ export default function TextInput ({ setText }) {
   return (
     <div>
       <p className='text-[2.5rem] dark:text-opacity-80 dark:text-white'>Presiona Ctrl+V</p>
-      <input type='text' className='absolute top-0 left-0 w-screen h-screen opacity-50' onPaste={handlePaste} onBlur={handleBlur} onInput={handleInput} autoFocus />
+      <input type='text' className='absolute top-0 left-0 w-screen h-screen opacity-0' onPaste={handlePaste} onBlur={handleBlur} onInput={handleInput} autoFocus />
     </div>
   )
 }
