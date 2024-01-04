@@ -1,8 +1,8 @@
-import TextInput from './TextInput'
-import TextBlock from './TextBlock'
 import { useEffect, useState } from 'react'
-import format from '../utils/format'
 import { useTextStore } from '../store/store'
+import format from '../utils/format'
+import TextInput from './TextInput'
+import Read from './Read'
 
 export default function Main () {
   const { text } = useTextStore()
@@ -13,7 +13,7 @@ export default function Main () {
   return (
     <main className='flex items-center justify-center flex-1 w-full'>
       {sentences.length !== 0 && text !== ''
-        ? <TextBlock sentences={sentences} />
+        ? <Read sentences={sentences} />
         : <TextInput />}
     </main>
   )
