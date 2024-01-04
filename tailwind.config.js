@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     fontFamily: {
-      qs: ['Quicksand Variable']
+      qs: ['Quicksand Variable'],
+      ft: ['Figtree Variable'],
+      lo: ['Lora Variable']
     },
     extend: {
       colors: {
