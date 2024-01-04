@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import '@fontsource-variable/figtree'
 import Text from './Text'
+import ReadInfo from './ReadInfo'
 
 const nextKeys = ['ArrowRight', ' ', 'ArrowDown']
 const previousKeys = ['ArrowLeft', 'ArrowUp']
@@ -27,8 +28,9 @@ export default function Read ({ sentences }) {
   }
 
   return (
-    <div className='w-[80em]'>
+    <>
       <Text sentence={sentences[pos]} isNext={isNext} />
-    </div>
+      <ReadInfo pos={pos} lines={sentences.length} />
+    </>
   )
 }
