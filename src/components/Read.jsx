@@ -28,8 +28,14 @@ export default function Read ({ sentences }) {
 
   return (
     <>
-      <Text sentence={sentences[pos]} isNext={isNext} />
-      <ReadInfo pos={pos} lines={sentences.length} />
+      {pos < sentences.length
+        ? (
+          <>
+            <Text sentence={sentences[pos]} isNext={isNext} />
+            <ReadInfo pos={pos} setPos={setPos} totalLines={sentences.length} />
+          </>
+          )
+        : <h1>Ctrl+V para pegar otro texto</h1>}
     </>
   )
 }

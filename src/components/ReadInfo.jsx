@@ -1,18 +1,30 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const LinesPerPage = 35
 
-export default function ReadInfo ({ pos, lines }) {
-  const inputRef = useRef(null)
+export default function ReadInfo ({ pos, setPos, totalLines }) {
+  const [line, setLine] = useState(pos + 1)
 
   useEffect(() => {
-    if (pos + 1 <= lines) {
-      inputRef.current.value = pos + 1
+    if (pos + 1 <= totalLines) {
+      setLine(pos + 1)
     }
   }, [pos])
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if ((line < 1 || line > totalLines)) {
+      setLine(pos + 1)
+      return
+    }
+    setPos(line - 1)
+  }
+
+  const handleChange = (e) => {
+    const val = e.target.value
+    if (!isNaN(val)) {
+      setLine(e.target.value)
+    }
   }
 
   return (
@@ -21,16 +33,17 @@ export default function ReadInfo ({ pos, lines }) {
         <span>Ln: </span>
         <form onSubmit={handleSubmit}>
           <input
-            type='number'
-            className='ml-2 bg-transparent outline-none'
-            style={{ minWidth: (pos + 1).toString().length + 'ch' }}
-            ref={inputRef}
+            type='text'
+            className='ml-2 bg-transparent outline-none max-w-[6ch]'
+            style={{ width: (line).toString().length + 'ch' }}
+            value={line}
+            onChange={handleChange}
           />
         </form>
-        <span>/{lines}</span>
+        <span>/{totalLines}</span>
       </li>
       <li>
-        <span>Pg: {Math.ceil((pos + 1) / LinesPerPage)}/{Math.ceil(lines / LinesPerPage)}</span>
+        <span>Pg: {Math.ceil((pos + 1) / LinesPerPage)}/{Math.ceil(totalLines / LinesPerPage)}</span>
       </li>
     </ul>
   )
