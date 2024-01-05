@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import '@fontsource-variable/figtree'
 import Text from './Text'
 import ReadInfo from './ReadInfo'
 

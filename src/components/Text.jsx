@@ -23,7 +23,7 @@ export default function Text ({ sentence, isNext }) {
 
   return (
     <div className='w-[80em]'>
-      <p ref={scope} className='text-[2.5rem] dark:text-opacity-80 dark:text-white font-[300] font-ft'>
+      <p ref={scope} className='text-[2.5rem] dark:text-opacity-80 dark:text-white font-[300]'>
         {sentence}
       </p>
     </div>
