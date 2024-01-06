@@ -25,17 +25,19 @@ export default function LineSetter ({ pos, setPos, totalLines }) {
     }
   }
   return (
-    <div className='flex flex-row'>
+    <div className='flex flex-row items-center'>
       <span>Ln: </span>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          className='ml-2 bg-transparent outline-none max-w-[6ch]'
-          style={{ width: (line).toString().length + 'ch' }}
-          value={line}
-          onChange={handleChange}
-        />
-      </form>
+      <div className='px-0.5 transition duration-300 border border-transparent rounded hover:border-white'>
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            className='bg-transparent outline-none max-w-[6ch] text-center'
+            style={{ width: (line).toString().length + 'ch' }}
+            value={line}
+            onChange={handleChange}
+          />
+        </form>
+      </div>
       <span>/{totalLines}</span>
     </div>
   )

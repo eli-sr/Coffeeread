@@ -26,17 +26,19 @@ export default function PageSetter ({ pos, setPos, totalPages }) {
     }
   }
   return (
-    <div className='flex flex-row'>
+    <div className='flex flex-row items-center'>
       <span>Pg: </span>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          className='ml-2 bg-transparent outline-none max-w-[6ch]'
-          style={{ width: (page).toString().length + 'ch' }}
-          value={page}
-          onChange={handleChange}
-        />
-      </form>
+      <div className='px-0.5 transition duration-300 border border-transparent rounded hover:border-white'>
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            className='bg-transparent outline-none max-w-[6ch] text-center'
+            style={{ width: (page).toString().length + 'ch' }}
+            value={page}
+            onChange={handleChange}
+          />
+        </form>
+      </div>
       <span>/{totalPages}</span>
     </div>
   )
