@@ -1,6 +1,6 @@
 import LineSetter from './LineSetter'
-
-const LinesPerPage = 35
+import PageSetter from './PageSetter'
+import { line2Page } from '../utils/utils'
 
 export default function ReadInfo ({ pos, setPos, totalLines }) {
   return (
@@ -9,7 +9,7 @@ export default function ReadInfo ({ pos, setPos, totalLines }) {
         <LineSetter pos={pos} setPos={setPos} totalLines={totalLines} />
       </li>
       <li>
-        <span>Pg: {Math.ceil((pos + 1) / LinesPerPage)}/{Math.ceil(totalLines / LinesPerPage)}</span>
+        <PageSetter pos={pos} setPos={setPos} totalPages={line2Page(totalLines)} />
       </li>
     </ul>
   )
