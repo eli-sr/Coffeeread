@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react'
-import { useTextStore } from '../store/store'
-import format from '../utils/format'
+import { useReadStore } from '../store/store'
 import TextInput from './TextInput'
 import Read from './Read'
 
 export default function Main () {
-  const { text } = useTextStore()
-  const [sentences, setSentences] = useState([])
-  useEffect(() => {
-    if (text !== '') { setSentences(format(text)) }
-  }, [text])
+  const { sentences } = useReadStore()
+
   return (
     <main className='flex items-center justify-center flex-1 w-full'>
-      {sentences.length !== 0 && text !== ''
-        ? <Read sentences={sentences} />
-        : <TextInput />}
+      {sentences.length === 0
+        ? <TextInput />
+        : <Read />}
     </main>
   )
 }

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import Text from './Text'
 import ReadInfo from './ReadInfo'
+import { useReadStore } from '../store/store'
 
 const nextKeys = ['ArrowRight', ' ', 'ArrowDown']
 const previousKeys = ['ArrowLeft', 'ArrowUp']
 
-export default function Read ({ sentences }) {
-  const [pos, setPos] = useState(0)
+export default function Read () {
+  const { pos, setPos, sentences } = useReadStore()
   const [isNext, setIsNext] = useState(true)
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function Read ({ sentences }) {
         ? (
           <>
             <Text sentence={sentences[pos]} isNext={isNext} />
-            <ReadInfo pos={pos} setPos={setPos} totalLines={sentences.length} />
+            <ReadInfo />
           </>
           )
         : <h1>Ctrl+V para pegar otro texto</h1>}

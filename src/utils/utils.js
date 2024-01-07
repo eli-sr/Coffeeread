@@ -1,11 +1,11 @@
 const LinesPerPage = 35
 
-function line2Page (lineNum) {
-  return Math.ceil(lineNum / LinesPerPage)
+function pos2Page (posNum) {
+  return Math.ceil((posNum + 1) / LinesPerPage)
 }
 
-function page2Line (pageNum) {
-  return (pageNum - 1) * LinesPerPage + 1
+function page2Pos (pageNum) {
+  return (pageNum - 1) * LinesPerPage
 }
 
-export { line2Page, page2Line }
+export { pos2Page, page2Pos }
