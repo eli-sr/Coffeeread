@@ -33,7 +33,7 @@ export default function Read () {
         ? (
           <>
             <Text sentence={sentences[pos]} isNext={isNext} />
-            <ReadInfo pos={pos} setPos={setPos} totalLines={sentences.length} />
+            <ReadInfo />
           </>
           )
         : <h1>Ctrl+V para pegar otro texto</h1>}
