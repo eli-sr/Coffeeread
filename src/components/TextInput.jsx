@@ -1,10 +1,12 @@
-import { useTextStore } from '../store/store'
+import { useReadStore } from '../store/store'
+import format from '../utils/format'
 
 export default function TextInput () {
-  const { setText } = useTextStore()
+  const { setSentences } = useReadStore()
+
   const handlePaste = async (e) => {
     setTimeout(() => {
-      setText(e.target.value)
+      setSentences(format(e.target.value))
       e.target.value = ''
     }, 1)
   }
