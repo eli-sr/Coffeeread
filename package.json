@@ -13,7 +13,9 @@
     "@fontsource-variable/lora": "^5.0.9",
     "@fontsource-variable/work-sans": "^5.0.17",
     "@gsap/react": "^2.0.2",
+    "@ionic/react": "^7.6.3",
     "gsap": "^3.12.4",
+    "ionicons": "^7.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zustand": "^4.4.7"
