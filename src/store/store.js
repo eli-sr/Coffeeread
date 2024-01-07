@@ -6,3 +6,8 @@ export const useReadStore = create((set) => ({
   setSentences: (sentences) => set(() => ({ sentences })),
   setPos: (pos) => set(() => ({ pos }))
 }))
+
+export const useThemeStore = create((set) => ({
+  darkTheme: true,
+  toogleTheme: () => set((state) => ({ darkTheme: !state.darkTheme }))
+}))
