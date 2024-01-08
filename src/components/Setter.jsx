@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function Setter ({ num, setNum, totalNum }) {
+export default function Setter ({ num, setNum, totalNum, name }) {
   const [currentNumber, setCurrentNumber] = useState(num)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Setter ({ num, setNum, totalNum }) {
   }
   return (
     <div className='flex flex-row items-center'>
-      <span>Ln: </span>
+      <span>{name} </span>
       <div className='px-0.5 transition duration-300 border border-transparent rounded hover:border-white'>
         <form onSubmit={handleSubmit}>
           <input

@@ -6,6 +6,6 @@ export default function PageSetter () {
   const { pos, setPos, sentences } = useReadStore()
   const setPosPage = (page) => setPos(page2Pos(page))
   return (
-    <Setter num={pos2Page(pos)} setNum={setPosPage} totalNum={pos2Page(sentences.length)} />
+    <Setter num={pos2Page(pos)} setNum={setPosPage} totalNum={pos2Page(sentences.length)} name='Pg:' />
   )
 }
