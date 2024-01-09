@@ -4,6 +4,7 @@ import SearchBar from './SearchBar'
 import ThemeSwitch from './ThemeSwitch'
 import { documentOutline, searchOutline } from 'ionicons/icons'
 import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 
 export default function Header () {
   const [showBar, setShowBar] = useState(false)
@@ -32,7 +33,9 @@ export default function Header () {
           </li>
         </ul>
       </header>
-      {showBar ? <SearchBar /> : null}
+      <AnimatePresence>
+        {showBar ? <SearchBar /> : null}
+      </AnimatePresence>
     </div>
   )
 }
