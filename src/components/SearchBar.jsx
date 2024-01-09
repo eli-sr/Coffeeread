@@ -5,6 +5,9 @@ import { IonIcon } from '@ionic/react'
 import { chevronDownOutline, chevronUpOutline } from 'ionicons/icons'
 
 export default function SearchBar () {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
   const scope = useRef(null)
   useGSAP(() => {
     gsap.set(scope.current, { opacity: 0, y: '-10px' })
@@ -19,7 +22,9 @@ export default function SearchBar () {
   return (
     <div className='flex flex-row items-center' ref={scope}>
       <div className='p-3 border rounded-xl dark:border-white dark:border-opacity-45'>
-        <input type='text' className='text-lg bg-transparent outline-none w-72 dark:opacity-80' placeholder='Buscar en texto...' />
+        <form onSubmit={handleSubmit}>
+          <input type='text' className='text-lg bg-transparent outline-none w-72 dark:opacity-80' placeholder='Buscar en texto...' />
+        </form>
       </div>
       <div className='flex flex-row ml-2 space-x-1'>
         <IonIcon icon={chevronDownOutline} className='text-2xl transition-opacity duration-300 dark:opacity-45 dark:hover:opacity-100' />
