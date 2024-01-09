@@ -7,8 +7,11 @@ import { useState } from 'react'
 
 export default function Header () {
   const [showBar, setShowBar] = useState(false)
-  const { setSentences } = useReadStore()
-  const handleNewText = () => setSentences([])
+  const { setSentences, setPos } = useReadStore()
+  const handleNewText = () => {
+    setSentences([])
+    setPos(0)
+  }
   const handleShowBar = () => setShowBar(!showBar)
   return (
     <div className='fixed flex flex-col items-center w-full'>

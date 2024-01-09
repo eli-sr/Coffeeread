@@ -17,6 +17,10 @@ export default function format (text) {
   if (trimText.length === 0) return sentences
   let restText = trimText
   let nextDot = restText.indexOf('.')
+  if (nextDot === -1) {
+    const line = removeBadChars(restText)
+    sentences.push(line)
+  }
   while (nextDot !== -1) {
     let line = restText.slice(0, nextDot + 1)
     line = removeBadChars(line)

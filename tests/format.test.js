@@ -45,3 +45,7 @@ e incluso generar código capaz de reintentar invocaciones en caso de RemoteExce
   ]
   expect(result).toStrictEqual(ok)
 })
+
+test('format function returns a string with one sentence if there is no dots in text', () => {
+  expect(format('Hola esta es una prueba sin puntos')).toStrictEqual(['Hola esta es una prueba sin puntos'])
+})
