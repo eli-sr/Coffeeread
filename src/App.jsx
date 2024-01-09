@@ -1,14 +1,16 @@
 import Header from './components/Header'
 import Main from './components/Main'
 import '@fontsource-variable/work-sans'
-import { useThemeStore } from './store/store'
+import { useReadStore, useThemeStore } from './store/store'
 
 function App () {
   const { darkTheme } = useThemeStore()
+  const { sentences } = useReadStore()
+
   return (
     <div className={`${darkTheme ? 'dark' : ''}`}>
       <div className='flex flex-col w-full h-screen bg-gray-200 dark:bg-dark dark:text-gray-200 font-ws'>
-        <Header />
+        {sentences.length > 0 ? <Header /> : null}
         <Main />
       </div>
     </div>
