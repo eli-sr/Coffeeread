@@ -1,31 +1,16 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { useGSAP } from '@gsap/react'
+import { motion } from 'framer-motion'
 
 export default function Text ({ sentence, isNext }) {
-  useEffect(() => {
-    isNext ? animate('+2rem') : animate('-2rem')
-  }, [sentence])
-
-  const scope = useRef(null)
-  const { contextSafe } = useGSAP({ scope })
-
-  const animate = contextSafe((yPos) => {
-    if (gsap.isTweening(scope.current)) { gsap.killTweensOf(scope.current) }
-    gsap.set(scope.current, { opacity: 0, y: yPos })
-    gsap.to(scope.current, {
-      opacity: 1,
-      duration: 0.4,
-      ease: 'power1.inOut',
-      y: 0
-    })
-  })
-
   return (
     <div className='w-[80em]'>
-      <p ref={scope} className='text-[2.5rem] dark:text-opacity-80 text-opacity-95 text-black dark:text-white font-[300]'>
+      <motion.p
+        className='text-[2.5rem] dark:text-opacity-80 text-opacity-95 text-black dark:text-white font-[300]'
+        initial={{ opacity: 0, y: isNext ? '2rem' : '-2rem' }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
         {sentence}
-      </p>
+      </motion.p>
     </div>
   )
 }

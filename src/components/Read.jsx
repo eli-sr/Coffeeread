@@ -32,7 +32,7 @@ export default function Read () {
       {pos < sentences.length
         ? (
           <>
-            <Text sentence={sentences[pos]} isNext={isNext} />
+            <Text sentence={sentences[pos]} isNext={isNext} key={pos} />
             <ReadInfo />
           </>
           )
