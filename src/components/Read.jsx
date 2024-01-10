@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Text from './Text'
-import ReadInfo from './ReadInfo'
 import { useReadStore } from '../store/store'
 
 const nextKeys = ['ArrowRight', ' ', 'ArrowDown']
@@ -18,7 +17,7 @@ export default function Read () {
   }, [pos])
 
   const handleKeyDown = (e) => {
-    if (nextKeys.includes(e.key) && pos < sentences.length) {
+    if (nextKeys.includes(e.key) && pos < sentences.length - 1) {
       setPos(pos + 1)
       setIsNext(true)
     } else if (previousKeys.includes(e.key) && pos > 0) {
@@ -28,15 +27,6 @@ export default function Read () {
   }
 
   return (
-    <>
-      {pos < sentences.length
-        ? (
-          <>
-            <Text sentence={sentences[pos]} isNext={isNext} key={pos} />
-            <ReadInfo />
-          </>
-          )
-        : <h1>Ctrl+V para pegar otro texto</h1>}
-    </>
+    <Text sentence={sentences[pos]} isNext={isNext} key={pos} />
   )
 }

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useReadStore } from '../store/store'
 import format from '../utils/format'
 
@@ -19,9 +20,13 @@ export default function TextInput () {
     }, 10)
   }
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: '2rem' }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <p className='text-[2.5rem] dark:text-opacity-80 dark:text-white font-[300]'>Presiona Ctrl+V</p>
       <textarea type='text' className='absolute top-0 left-0 w-screen h-screen opacity-0' onPaste={handlePaste} onBlur={handleBlur} onInput={handleInput} autoFocus />
-    </div>
+    </motion.div>
   )
 }
