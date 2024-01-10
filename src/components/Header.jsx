@@ -4,7 +4,7 @@ import SearchBar from './SearchBar'
 import ThemeSwitch from './ThemeSwitch'
 import { documentOutline, searchOutline } from 'ionicons/icons'
 import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Header () {
   const [showBar, setShowBar] = useState(false)
@@ -15,7 +15,13 @@ export default function Header () {
   }
   const handleShowBar = () => setShowBar(!showBar)
   return (
-    <div className='fixed flex flex-col items-center w-full'>
+    <motion.div
+      className='fixed flex flex-col items-center w-full'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <header>
         <ul className='flex flex-row items-center py-6 space-x-5'>
           <li>
@@ -36,6 +42,6 @@ export default function Header () {
       <AnimatePresence>
         {showBar ? <SearchBar /> : null}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }
