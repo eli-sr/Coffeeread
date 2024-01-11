@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion'
 import { useReadStore } from '../store/store'
 import format from '../utils/format'
+import { setLocalSentences } from '../utils/utils'
 
 export default function TextInput () {
   const { setSentences } = useReadStore()
 
   const handlePaste = async (e) => {
     setTimeout(() => {
-      setSentences(format(e.target.value))
+      const sentences = format(e.target.value)
+      setSentences(sentences)
       e.target.value = ''
+      setLocalSentences(sentences)
+      localStorage.setItem('pos', 0)
     }, 1)
   }
   const handleBlur = (e) => {

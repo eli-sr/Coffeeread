@@ -3,10 +3,20 @@ import Main from './components/Main'
 import '@fontsource-variable/work-sans'
 import { useReadStore, useThemeStore } from './store/store'
 import { AnimatePresence } from 'framer-motion'
+import { useEffect } from 'react'
+import { getLocalSentences } from './utils/utils'
 
 function App () {
   const { darkTheme } = useThemeStore()
-  const { sentences } = useReadStore()
+  const { sentences, setSentences, setPos } = useReadStore()
+
+  useEffect(() => {
+    const savedSentences = getLocalSentences()
+    const savedPos = localStorage.getItem('pos')
+    if (!savedSentences || savedSentences.length < 1) return
+    setSentences(savedSentences)
+    setPos(savedPos)
+  }, [])
 
   return (
     <div className={`${darkTheme ? 'dark' : ''}`}>
