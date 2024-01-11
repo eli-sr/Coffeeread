@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useReadStore } from '../store/store'
 import format from '../utils/format'
-import { setLocalSentences } from '../utils/utils'
+import { setLocalPos, setLocalSentences } from '../utils/utils'
 
 export default function TextInput () {
   const { setSentences } = useReadStore()
@@ -12,7 +12,7 @@ export default function TextInput () {
       setSentences(sentences)
       e.target.value = ''
       setLocalSentences(sentences)
-      localStorage.setItem('pos', 0)
+      setLocalPos(0)
     }, 1)
   }
   const handleBlur = (e) => {

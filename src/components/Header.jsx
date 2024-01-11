@@ -5,7 +5,6 @@ import ThemeSwitch from './ThemeSwitch'
 import { documentOutline, searchOutline } from 'ionicons/icons'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { setLocalSentences } from '../utils/utils'
 
 export default function Header () {
   const [showBar, setShowBar] = useState(false)
@@ -13,8 +12,8 @@ export default function Header () {
   const handleNewText = () => {
     setSentences([])
     setPos(0)
-    setLocalSentences([])
-    localStorage.setItem('pos', 0)
+    localStorage.removeItem('sentences')
+    localStorage.removeItem('pos')
   }
   const handleShowBar = () => setShowBar(!showBar)
   return (

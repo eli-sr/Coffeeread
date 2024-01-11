@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Text from './Text'
 import { useReadStore } from '../store/store'
+import { setLocalPos } from '../utils/utils'
 
 const nextKeys = ['ArrowRight', ' ', 'ArrowDown']
 const previousKeys = ['ArrowLeft', 'ArrowUp']
@@ -11,6 +12,7 @@ export default function Read () {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
+    setLocalPos(pos)
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }

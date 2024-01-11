@@ -18,4 +18,14 @@ function setLocalSentences (sentences) {
   localStorage.setItem('sentences', data)
 }
 
-export { pos2Page, page2Pos, getLocalSentences, setLocalSentences }
+function getLocalPos () {
+  const num = localStorage.getItem('pos')
+  return Number.parseInt(num)
+}
+
+function setLocalPos (pos) {
+  const num = Number.parseInt(pos)
+  localStorage.setItem('pos', num)
+}
+
+export { pos2Page, page2Pos, getLocalSentences, setLocalSentences, getLocalPos, setLocalPos }

@@ -4,7 +4,7 @@ import '@fontsource-variable/work-sans'
 import { useReadStore, useThemeStore } from './store/store'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
-import { getLocalSentences } from './utils/utils'
+import { getLocalPos, getLocalSentences } from './utils/utils'
 
 function App () {
   const { darkTheme } = useThemeStore()
@@ -12,8 +12,8 @@ function App () {
 
   useEffect(() => {
     const savedSentences = getLocalSentences()
-    const savedPos = localStorage.getItem('pos')
-    if (!savedSentences || savedSentences.length < 1) return
+    const savedPos = getLocalPos()
+    if (!savedSentences) return
     setSentences(savedSentences)
     setPos(savedPos)
   }, [])
