@@ -11,7 +11,7 @@ export default function ReadInfo () {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <ul className='flex space-x-4 dark:opacity-45 opacity-70'>
+      <ul className='flex space-x-4 transition duration-300 dark:opacity-45 opacity-70'>
         <li>
           <LineSetter />
         </li>

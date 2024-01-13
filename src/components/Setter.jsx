@@ -34,7 +34,7 @@ export default function Setter ({ num, setNum, totalNum, name }) {
   return (
     <div className='flex flex-row items-center'>
       <span>{name} </span>
-      <div className='px-0.5 transition duration-300 border border-transparent rounded dark:hover:border-white hover:border-black'>
+      <div className='px-0.5 border border-transparent transition-[border-color] duration-300 rounded dark:hover:border-white hover:border-black'>
         <form onSubmit={handleSubmit}>
           <input
             type='text'

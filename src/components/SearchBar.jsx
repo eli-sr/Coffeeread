@@ -58,7 +58,7 @@ export default function SearchBar () {
           <input
             type='text'
             name='query'
-            className='text-lg transition duration-300 bg-transparent outline-none opacity-70 w-72'
+            className='text-lg bg-transparent outline-none opacity-70 w-72'
             onFocus={handleFocus}
             onBlur={handleBlur}
             placeholder='Buscar en texto...'
