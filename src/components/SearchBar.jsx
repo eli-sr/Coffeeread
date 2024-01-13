@@ -53,12 +53,12 @@ export default function SearchBar () {
       exit={{ opacity: 0, y: '-10px' }}
       transition={{ duration: 0.3 }}
     >
-      <div className='p-3 border rounded-xl dark:border-white dark:border-opacity-45'>
+      <div className='p-3 transition duration-300 border border-black rounded-xl dark:border-white dark:border-opacity-45 border-opacity-45'>
         <form onSubmit={handleSubmit}>
           <input
             type='text'
             name='query'
-            className='text-lg bg-transparent outline-none w-72 dark:opacity-80'
+            className='text-lg transition duration-300 bg-transparent outline-none opacity-70 w-72'
             onFocus={handleFocus}
             onBlur={handleBlur}
             placeholder='Buscar en texto...'
@@ -67,14 +67,14 @@ export default function SearchBar () {
       </div>
       <div className='flex flex-row ml-2 space-x-1'>
         <button onClick={handleNextHit} className='flex items-center'>
-          <IonIcon icon={chevronDownOutline} className='text-2xl transition-opacity duration-300 dark:opacity-45 dark:hover:opacity-100' />
+          <IonIcon icon={chevronDownOutline} className='text-2xl transition duration-300 opacity-70 dark:opacity-45 hover:opacity-100' />
         </button>
         <button onClick={handlePreviousHit} className='flex items-center'>
-          <IonIcon icon={chevronUpOutline} className='text-2xl transition-opacity duration-300 dark:opacity-45 dark:hover:opacity-100' />
+          <IonIcon icon={chevronUpOutline} className='text-2xl transition duration-300 hover:opacity-100 dark:opacity-45 opacity-70' />
         </button>
       </div>
       {hits.length !== 0
-        ? <span className='fixed -right-8 opacity-45'>{hitPos + 1}/{hits.length}</span>
+        ? <span className='fixed -right-10 opacity-70 dark:opacity-45'>{hitPos + 1}/{hits.length}</span>
         : null}
     </motion.div>
   )

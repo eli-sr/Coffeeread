@@ -7,7 +7,7 @@ export default function ThemeSwitch () {
   const handleClick = () => toogleTheme()
   return (
     <button onClick={handleClick} title='Cambiar tema'>
-      <IonIcon icon={darkTheme ? sunnyOutline : moonOutline} className='text-2xl transition duration-300 hover:opacity-100 opacity-45' />
+      <IonIcon icon={darkTheme ? sunnyOutline : moonOutline} className='text-2xl transition duration-300 hover:opacity-100 dark:opacity-45 opacity-70' />
     </button>
   )
 }

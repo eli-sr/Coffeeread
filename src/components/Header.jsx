@@ -28,12 +28,12 @@ export default function Header () {
         <ul className='flex flex-row items-center py-6 space-x-5'>
           <li>
             <button onClick={handleNewText} title='Nuevo texto'>
-              <IonIcon icon={documentOutline} className='text-2xl transition duration-300 hover:opacity-100 opacity-45' />
+              <IonIcon icon={documentOutline} className='text-2xl transition duration-300 hover:opacity-100 dark:opacity-45 opacity-70' />
             </button>
           </li>
           <li>
             <button onClick={handleShowBar} title='Buscar en texto'>
-              <IonIcon icon={searchOutline} className='text-2xl transition duration-300 hover:opacity-100 opacity-45' />
+              <IonIcon icon={searchOutline} className='text-2xl transition duration-300 hover:opacity-100 dark:opacity-45 opacity-70' />
             </button>
           </li>
           <li>
