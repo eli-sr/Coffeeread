@@ -8,7 +8,7 @@ export default function Text ({ sentence, isNext }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <p className='text-[2.5rem] dark:text-opacity-80 text-opacity-95 text-black dark:text-white font-[300]'>
+      <p className='text-[2.5rem] dark:text-opacity-80 text-opacity-95 text-black dark:text-white font-[300] transition duration-300'>
         {sentence}
       </p>
     </motion.div>
