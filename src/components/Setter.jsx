@@ -3,6 +3,7 @@ import { useInputStore } from '../store/store'
 
 export default function Setter ({ num, setNum, totalNum, name }) {
   const [currentNumber, setCurrentNumber] = useState(num)
+  const [currentTotalNumber, setCurrentTotalNumber] = useState(totalNum)
   const { setFocused, setNotFocused } = useInputStore()
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function Setter ({ num, setNum, totalNum, name }) {
           />
         </form>
       </div>
-      <span>/{totalNum}</span>
+      <span>/{currentTotalNumber}</span>
     </div>
   )
 }
