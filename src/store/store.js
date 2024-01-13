@@ -11,3 +11,9 @@ export const useThemeStore = create((set) => ({
   darkTheme: true,
   toogleTheme: () => set((state) => ({ darkTheme: !state.darkTheme }))
 }))
+
+export const useInputStore = create((set) => ({
+  focused: false,
+  setFocused: () => set(() => ({ focused: true })),
+  setNotFocused: () => set(() => ({ focused: false }))
+}))

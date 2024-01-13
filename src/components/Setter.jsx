@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useInputStore } from '../store/store'
 
 export default function Setter ({ num, setNum, totalNum, name }) {
   const [currentNumber, setCurrentNumber] = useState(num)
+  const { setFocused, setNotFocused } = useInputStore()
 
   useEffect(() => {
     if (num <= totalNum) {
@@ -24,6 +26,10 @@ export default function Setter ({ num, setNum, totalNum, name }) {
       setCurrentNumber(e.target.value)
     }
   }
+
+  const handleFocus = () => setFocused()
+  const handleBlur = () => setNotFocused()
+
   return (
     <div className='flex flex-row items-center'>
       <span>{name} </span>
@@ -35,6 +41,8 @@ export default function Setter ({ num, setNum, totalNum, name }) {
             style={{ width: (currentNumber).toString().length + 'ch' }}
             value={currentNumber}
             onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
         </form>
       </div>

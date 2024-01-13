@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react'
 import Text from './Text'
-import { useReadStore } from '../store/store'
+import { useInputStore, useReadStore } from '../store/store'
 import { setLocalPos } from '../utils/utils'
 
 const nextKeys = ['ArrowRight', ' ', 'ArrowDown']
 const previousKeys = ['ArrowLeft', 'ArrowUp']
 
 export default function Read () {
-  const { pos, setPos, sentences } = useReadStore()
   const [isNext, setIsNext] = useState(true)
+  const { pos, setPos, sentences } = useReadStore()
+  const { focused } = useInputStore()
 
   useEffect(() => {
+    if (focused) return
     window.addEventListener('keydown', handleKeyDown)
     setLocalPos(pos)
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [pos])
+  }, [pos, focused])
 
   const handleKeyDown = (e) => {
     if (nextKeys.includes(e.key) && pos < sentences.length - 1) {
