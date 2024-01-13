@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react'
 import { IonIcon } from '@ionic/react'
 import { chevronDownOutline, chevronUpOutline } from 'ionicons/icons'
 import search from '../utils/search'
-import { useReadStore } from '../store/store'
+import { useInputStore, useReadStore } from '../store/store'
 import { motion } from 'framer-motion'
 
 export default function SearchBar () {
   const [hits, setHits] = useState([])
   const [hitPos, setHitPos] = useState(0)
   const { sentences, setPos } = useReadStore()
+  const { setFocused, setNotFocused } = useInputStore()
 
   useEffect(() => {
     if (hits.length === 0) return
@@ -41,6 +42,9 @@ export default function SearchBar () {
     setHitPos(hitPos - 1)
   }
 
+  const handleFocus = () => setFocused()
+  const handleBlur = () => setNotFocused()
+
   return (
     <motion.div
       className='relative flex flex-row items-center'
@@ -51,7 +55,14 @@ export default function SearchBar () {
     >
       <div className='p-3 border rounded-xl dark:border-white dark:border-opacity-45'>
         <form onSubmit={handleSubmit}>
-          <input type='text' name='query' className='text-lg bg-transparent outline-none w-72 dark:opacity-80' placeholder='Buscar en texto...' />
+          <input
+            type='text'
+            name='query'
+            className='text-lg bg-transparent outline-none w-72 dark:opacity-80'
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            placeholder='Buscar en texto...'
+          />
         </form>
       </div>
       <div className='flex flex-row ml-2 space-x-1'>
