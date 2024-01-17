@@ -49,3 +49,34 @@ e incluso generar código capaz de reintentar invocaciones en caso de RemoteExce
 test('format function returns a string with one sentence if there is no dots in text', () => {
   expect(format('Hola esta es una prueba sin puntos')).toStrictEqual(['Hola esta es una prueba sin puntos'])
 })
+
+test('format function includes number points in sentence', () => {
+  const text = `2. LA EVOLUCIÓN HUMANA: EL PROCESO DE HOMINIZACIÓN Y
+HUMANIZACIÓN
+La antropología física estudia el proceso de hominización.`
+  const result = format(text)
+  const ok = [
+    '2. LA EVOLUCIÓN HUMANA: EL PROCESO DE HOMINIZACIÓN Y HUMANIZACIÓN La antropología física estudia el proceso de hominización.'
+  ]
+  expect(result).toStrictEqual(ok)
+})
+
+test('format function includes longer number points in sentence', () => {
+  const text = `2.2 Explicaciones evolucionistas
+El primer científico que propuso una teoría de la evolución fue Jean-Baptiste Lamarck
+(1744–1829).
+`
+  const result = format(text)
+  const ok = [
+    '2.2 Explicaciones evolucionistas El primer científico que propuso una teoría de la evolución fue Jean-Baptiste Lamarck (1744–1829).'
+  ]
+  expect(result).toStrictEqual(ok)
+})
+
+test('format function returs 2. with an 2. input', () => {
+  expect(format('2.')).toStrictEqual(['2.'])
+})
+
+test('format function returs 2.2. with an 2.2. input', () => {
+  expect(format('2.2.')).toStrictEqual(['2.2.'])
+})
