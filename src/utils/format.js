@@ -12,7 +12,7 @@ function removeBadChars (line) {
 }
 
 function isSectionDot (text, index) {
-  if (index - 1 < 0) return false
+  if (index - 1 < 0 || text.length - 1 === index) return false
   return !isNaN(text[index - 1])
 }
 
@@ -24,27 +24,39 @@ function findNextDotFrom (text, index) {
   return text.length - 1
 }
 
+function isValidIndex (index) {
+  return index >= 0
+}
+
+function getLine (text, lastIndex) {
+  return removeBadChars(text.slice(0, lastIndex + 1))
+}
+
+function getRestText (text, firstIndex) {
+  return text.slice(firstIndex).trim()
+}
+
 export default function format (text) {
   const sentences = []
-  const trimText = text.trim()
-  if (trimText.length === 0) return sentences
-  let restText = trimText
+  const trimmedText = text.trim()
+  if (trimmedText.length === 0) return sentences
+
+  let restText = trimmedText
   let nextDot = restText.indexOf('.')
   let line
-  if (nextDot === -1) {
-    const line = removeBadChars(restText)
+
+  if (!isValidIndex(nextDot)) {
+    line = getLine(restText, restText.length - 1)
     sentences.push(line)
   }
-  while (nextDot !== -1) {
+
+  while (isValidIndex(nextDot)) {
     while (isSectionDot(restText, nextDot)) {
-      if (restText.length - 1 === nextDot) break
       nextDot = findNextDotFrom(restText, nextDot)
     }
-    line = restText.slice(0, nextDot + 1)
-    line = removeBadChars(line)
+    line = getLine(restText, nextDot)
     sentences.push(line)
-    restText = restText.slice(nextDot + 1)
-    restText = restText.trim()
+    restText = getRestText(restText, nextDot + 1)
     nextDot = restText.indexOf('.')
   }
   return sentences
