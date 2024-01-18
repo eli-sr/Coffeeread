@@ -8,8 +8,9 @@ export const useReadStore = create((set) => ({
 }))
 
 export const useThemeStore = create((set) => ({
-  darkTheme: true,
+  darkTheme: localStorage.getItem('theme') === 'dark',
   toogleTheme: () => set((state) => ({ darkTheme: !state.darkTheme }))
+
 }))
 
 export const useInputStore = create((set) => ({
