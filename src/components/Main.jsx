@@ -8,7 +8,7 @@ export default function Main () {
   const { sentences } = useReadStore()
 
   return (
-    <main className='flex items-center justify-center flex-1 w-full'>
+    <main className='flex items-center justify-center flex-1 w-full overflow-hidden'>
       <AnimatePresence>
         {sentences.length === 0
           ? <TextInput />
