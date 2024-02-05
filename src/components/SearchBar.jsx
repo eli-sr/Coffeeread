@@ -11,6 +11,8 @@ export default function SearchBar () {
   const { sentences, setPos } = useReadStore()
   const { setFocused, setNotFocused } = useInputStore()
 
+  const hitsString = `${hitPos + 1}/${hits.length}`
+
   useEffect(() => {
     if (hits.length === 0) return
     setPos(hits[hitPos])
@@ -74,7 +76,13 @@ export default function SearchBar () {
         </button>
       </div>
       {hits.length !== 0
-        ? <span className='fixed -right-10 opacity-70 dark:opacity-45'>{hitPos + 1}/{hits.length}</span>
+        ? (
+          <span
+            className='fixed opacity-70 dark:opacity-45'
+            style={{ right: `-${hitsString.length}ch` }}
+          >{hitsString}
+          </span>
+          )
         : null}
     </motion.div>
   )
