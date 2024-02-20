@@ -20,7 +20,7 @@ function App () {
 
   return (
     <div className={`${darkTheme ? 'dark' : ''}`}>
-      <div className='flex flex-col w-full h-screen transition-[background-color] duration-300 bg-gray-200 dark:bg-dark dark:text-gray-200 font-ws'>
+      <div className='flex flex-col w-full h-screen transition-[background-color] duration-300 bg-gray-50 dark:bg-dark dark:text-gray-200 font-ws'>
         <AnimatePresence>
           {sentences.length > 0 ? <Header /> : null}
         </AnimatePresence>
