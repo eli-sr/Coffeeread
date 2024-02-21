@@ -30,9 +30,9 @@ export default function TextInput () {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <p className='text-[3rem] dark:text-opacity-80 dark:text-white font-[400] text-center font-ro italic -mb-2'>Coffeeread</p>
-      <p className='text-[1.5rem] dark:text-opacity-80 dark:text-white font-[300] text-center -mb-3'>Presiona Ctrl+V</p>
-      <p className='text-[1.5rem] dark:text-opacity-80 dark:text-white font-[300] text-center'>para pegar tu texto</p>
+      <p className='text-[3rem] opacity-80 dark:text-white font-[400] text-center font-ro italic -mb-2'>Coffeeread</p>
+      <p className='text-[1.5rem] opacity-80 dark:text-white font-[300] text-center -mb-3'>Presiona Ctrl+V</p>
+      <p className='text-[1.5rem] opacity-80 dark:text-white font-[300] text-center'>para pegar tu texto</p>
       <textarea type='text' className='absolute top-0 left-0 w-screen h-screen opacity-0' onPaste={handlePaste} onBlur={handleBlur} onInput={handleInput} autoFocus />
     </motion.div>
   )
