@@ -8,7 +8,8 @@ export default {
   theme: {
     fontFamily: {
       lo: ['Lora Variable'],
-      ws: ['Work Sans Variable']
+      ws: ['Work Sans Variable'],
+      ro: ['Rokkitt Variable']
     },
     extend: {
       colors: {
