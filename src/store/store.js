@@ -18,3 +18,8 @@ export const useInputStore = create((set) => ({
   setFocused: () => set(() => ({ focused: true })),
   setNotFocused: () => set(() => ({ focused: false }))
 }))
+
+export const useFontStore = create((set) => ({
+  dyslexic: false,
+  toogleFont: () => set((state) => ({ dyslexic: !state.dyslexic }))
+}))
