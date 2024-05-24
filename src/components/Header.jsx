@@ -2,6 +2,7 @@ import { IonIcon } from '@ionic/react'
 import { useReadStore } from '../store/store'
 import SearchBar from './SearchBar'
 import ThemeSwitch from './ThemeSwitch'
+import FontSwitch from './FontSwitch'
 import { documentOutline, searchOutline } from 'ionicons/icons'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -38,6 +39,9 @@ export default function Header () {
           </li>
           <li>
             <ThemeSwitch />
+          </li>
+          <li>
+            <FontSwitch />
           </li>
         </ul>
       </header>
