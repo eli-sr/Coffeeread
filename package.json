@@ -13,6 +13,7 @@
     "@fontsource-variable/lora": "^5.0.9",
     "@fontsource-variable/rokkitt": "^5.0.19",
     "@fontsource-variable/work-sans": "^5.0.17",
+    "@fontsource/opendyslexic": "^5.0.11",
     "@ionic/react": "^7.6.3",
     "framer-motion": "^10.17.12",
     "ionicons": "^7.2.2",

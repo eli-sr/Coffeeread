@@ -9,7 +9,8 @@ export default {
     fontFamily: {
       lo: ['Lora Variable'],
       ws: ['Work Sans Variable'],
-      ro: ['Rokkitt Variable']
+      ro: ['Rokkitt Variable'],
+      od: ['OpenDyslexic']
     },
     extend: {
       colors: {
