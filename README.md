@@ -1,4 +1,4 @@
-# MadMove
+# Coffeeread
 
 ### 🇪🇸
 Coffeeread es una aplicación web creada para mejorar la experiencia de lectura de documentos. Es tan fácil como copiar el texto del documento y pegarlo en la aplicación para comenzar a leer más comodamente. La app ha sido diseñada para proporcionar una interfaz limpia, sencilla e intuitiva, con los botones y textos justos. Además, cuenta con soporte para personas con dislexia, facilitando también su lectura.
